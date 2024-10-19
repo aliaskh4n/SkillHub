@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои курсы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        li:hover {
+            transform: scale(1.02);
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        h2 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .delete-btn {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .delete-btn:hover {
+            background-color: #e63946;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            li {
+                padding: 10px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .delete-btn {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Мои курсы</h1>
+    <ul>
+        {% for course in courses %}
+            <li>
+                <a href="edit_course/{{course.id}}">
+                <h2>{{ course.title }}</h2>
+                <p>{{ course.description }}</p>
+                <p>Цена: {{ course.price }}</p>
+                <img src="{{ url_for('static', filename='uploads/' + course.cover_image) }}" alt="Обложка курса" />
+                </a>
+                <div class="button-container">
+                    <form action="/delete_course/{{ course.id }}" method="POST">
+                        <button class="delete-btn" type="submit">Удалить</button>
+                    </form>
+                </div>
+            </li>
+        {% else %}
+            <li>У вас нет курсов.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

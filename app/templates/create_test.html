@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание курса</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search..." />
+        </div>
+
+        <!-- Course Section -->
+        <div class="course-section">
+            <h2>Создание курса</h2>
+            <div class="course-banner">
+                <img src="https://via.placeholder.com/300x150" alt="Shifty Course" />
+            </div>
+
+            <!-- Course Name -->
+            <h3>Название</h3>
+            <p>Курс создания своего приложения на языке PHP</p>
+
+            <!-- Description -->
+            <h3>Небольшое описание</h3>
+            <p>В курс будет разбирать почему и как нужно реализовывать свои проекты. Что такое ООП и мир PHP. Уже на 1 месяц будет результат.</p>
+
+            <!-- Cost -->
+            <h3>Стоимость</h3>
+            <div class="cost">
+                <div class="input-range">
+                    <label for="min-price">От</label>
+                    <input type="number" id="min-price" placeholder="0">
+                </div>
+                <div class="input-range">
+                    <label for="max-price">До</label>
+                    <input type="number" id="max-price" placeholder="0">
+                </div>
+                <div class="currency">
+                    <span>Валюта</span>
+                    <select>
+                        <option value="RUB">RUB</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <h3>Способы оплаты</h3>
+            <div class="payment-methods">
+                <label><input type="checkbox" checked> обязательные требования</label>
+                <div class="bank-method">
+                    <span>Тинькофф / Т-банк</span>
+                    <button class="remove-method">✖</button>
+                </div>
+            </div>
+
+            <!-- Material Section -->
+            <h3>Материал</h3>
+            <div class="material">
+                <div class="material-item">
+                    <div class="material-icon"></div>
+                    <p>Первый урок <br> Обрабатывается...</p>
+                </div>
+                <button class="add-material">+ Добавить новый материал</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar__content">
+            <a href="my_courses">
+                <div class="content__avatar"></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <center>
+            <div class="profile__avatar"></div>
+            <h2>{{ course.author_name }}</h2>
+        </center>
+
+        <button class="btn" type="submit">Add Course</button>
+
+        {% for course in courses %}
+            <div class="content_element">
+                <div class="content__cover" style="background-image: url('{{ url_for('static', filename='uploads/' + course.cover_image) }}')"></div>
+                <div class="title__container">
+                    <div class="content__avatar"></div>
+                    <div class="title__container__block">
+                        <t>{{ course.title }}</t><br>
+                        <div class="user__name">{{ course.price }}</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+<script>
+    let web = window.Telegram.WebApp;
+    document.cookie = `user_id=${web.initDataUnsafe.user.id}; path=/; secure`;
+</script>
+</html>

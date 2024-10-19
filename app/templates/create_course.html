@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Course</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar__content">
+            <a id="profile">
+                <div class="content__avatar"></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Create a New Course</h1>
+
+        <form action="/add_course" method="POST" enctype="multipart/form-data">
+            <label for="cover_image">Cover Image</label>
+            <div class="image-container" id="cover_image_container"></div>
+            <input type="file" id="cover_image" name="cover_image" accept="image/*" style="display: none;" required>
+
+            <label for="title">Course Title</label>
+            <input class="inpt" type="text" id="title" name="title" required>
+            
+            <label for="description">Description</label>
+            <textarea class="inpt textarea" id="description" name="description" required></textarea>
+            
+            <label for="price">Price</label>
+            <input class="inpt" type="number" min="1" max="100000000" step="1" id="price" name="price" required>
+            
+            <button class="btn" type="submit">Create Course</button>
+        </form>
+    </div>
+</body>
+<script>
+    let web = window.Telegram.WebApp;
+    document.cookie = `user_id=${web.initDataUnsafe.user.id}; path=/; secure`;
+    document.querySelector("#profile").href = '/profile/' + web.initDataUnsafe.user.id;
+    
+    document.getElementById('cover_image_container').addEventListener('click', function() {
+        document.getElementById('cover_image').click();
+    });
+
+    document.getElementById('cover_image').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('cover_image_container').style.backgroundImage = `url(${e.target.result})`;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+</html>

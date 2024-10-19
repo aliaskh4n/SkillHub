@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    margin: 0 auto 10px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.rating span {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.stars {
+    font-size: 16px;
+    color: #ffcc00;
+}
+
+.add-course-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.courses h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.course-card {
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+}
+
+.course-banner {
+    background-color: #6f44ff;
+    color: #fff;
+    padding: 20px 0;
+    border-radius: 15px 15px 0 0;
+}
+
+.course-banner h2 {
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.course-banner p {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.course-description {
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+.course-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.course-rating span {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.course-rating .stars {
+    font-size: 16px;
+    color: #ffcc00;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Main</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar__content">
+            <a id="profile">
+                <div class="content__avatar" style="background-image: url('{{photo}}');"></div> 
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="content__cover" style="background-image: url( {{ url_for('static', filename='uploads/' + course.cover_image) }} )"></div>
+
+        <h3>{{ course.title }}</h3>
+        <div class="title__container" style="align-items: center;">
+            <div class="content__avatar" style="background-image: url('{{course.author_photo}}');"></div> 
+            <div class="title__container__block">
+                <t1>{{ course.author_name }}</t1>
+            </div>
+        </div>
+
+        <p class="course-description">{{ course.description }}</p>
+
+        <p>
+            <h3>Стоимость</h3>
+            {{ course.price }}
+            <p>{{lesson_count}}</p>
+        </p>
+    </div>
+</body>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+    let web = window.Telegram.WebApp;
+    document.querySelector("#profile").href = '/profile/' + web.initDataUnsafe.user.id;
+</script>
+</html>
